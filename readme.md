@@ -11,3 +11,4 @@ What webpack does differently than browserify or require.js, is add additional t
 ## Chapters
 * [Installing Webpack](chapters/installing-webpack.md)
 * [Using Webpack](chapters/using-webpack.md)
+* [Understanding the Bundle](chapters/understanding-the-bundle.md)
