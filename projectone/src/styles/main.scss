@@ -1,0 +1,10 @@
+$background: blue;
+
+body {
+  background: $background;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+}

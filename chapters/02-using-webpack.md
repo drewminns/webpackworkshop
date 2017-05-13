@@ -105,3 +105,18 @@ Open up `package.json` and find the scripts section. Delete the existing `test` 
 You'll notice that we no longer need to write `.node_modules/webpack/bin/webpack.js` in the value and that's because npm scripts will automatically look within the node_modules folder for the needed package.
 
 We can now run `npm run build` and webpack will bundle our file.
+
+## Watching for changes
+If we want to have webpack watch your changes in our entry file and rebundle our code, we can add a **watch flag** to our command like so:
+```
+...
+"scripts": {
+  "build" : "webpack src/script.js bundle.js --watch"
+},
+...
+```
+
+With this in place, we can leave our terminal running.
+
+## Exercise
+Add more external JS files and require them into your script.js. Import others into your data.js and create a chain of files to be bundled into one final file.

@@ -1,24 +1,47 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const PRODUCTION = process.env.NODE_ENV === 'production';
-const DEVELOPMENT = process.env.NODE_ENV === 'development';
+const PROD = process.env.NODE_ENV === 'production';
+const DEV = process.env.NODE_ENV === 'development';
 
-var entry = PRODUCTION
+const entry = PROD
   ? [ './src/script.js' ]
   : [
     './src/script.js',
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080'
-  ]
+  ];
 
-var plugins = PRODUCTION
-  ? []
-  : [ new webpack.HotModuleReplacementPlugin() ];
+const postcss = {
+  loader: 'postcss-loader',
+  options: {
+    plugins: [
+      require('autoprefixer')()
+    ]
+  }
+};
+
+const plugins = PROD
+  ? [
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('style.css'),
+  ]
+  : [
+      new webpack.HotModuleReplacementPlugin(),
+    ];
+
+
+const cssLoader = PROD
+  ? ExtractTextPlugin.extract({
+    use: ['css-loader?minimize=true', postcss, 'sass-loader']
+  })
+  : ['style-loader', 'css-loader', postcss, 'sass-loader']
 
 module.exports = {
-  entry: entry,
-  plugins: plugins,
+  entry,
+  plugins,
   output: {
     path: path.join(__dirname, '../dist'),
     publicPath: '/dist/',
@@ -30,7 +53,22 @@ module.exports = {
         test: /\.js$/,
         use: ['babel-loader'],
         exclude: '/node_modules/'
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: '/node_modules/'
+      },
+      {
+        test: /\.scss$/,
+        use: cssLoader,
+        exclude: '/node_modules/'
+      },
+      {
+        test: /\.(png|gif|jpg)$/,
+        use: ['url-loader?limit=30000&name=images/[hash:12].[ext]'],
+        exclude: '/node_modules/'
+      },
     ]
   }
 }
