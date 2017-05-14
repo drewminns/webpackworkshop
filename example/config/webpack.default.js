@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 const PROD = process.env.NODE_ENV === 'production';
 const DEV = process.env.NODE_ENV === 'development';
@@ -25,8 +26,14 @@ const postcss = {
 
 const plugins = PROD
   ? [
-    new webpack.optimize.UglifyJsPlugin(),
-    new ExtractTextPlugin('style.css'),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      mangle: false
+    }),
+    new ExtractTextPlugin('style-[contenthash:10].min.css'),
+    new HTMLWebpackPlugin({
+      template: 'config/template.html'
+    })
   ]
   : [
       new webpack.HotModuleReplacementPlugin(),
@@ -35,17 +42,18 @@ const plugins = PROD
 
 const cssLoader = PROD
   ? ExtractTextPlugin.extract({
-    use: ['css-loader?minimize=true', postcss, 'sass-loader']
+    use: [`css-loader?minimize=true`, postcss, 'sass-loader']
   })
   : ['style-loader', 'css-loader', postcss, 'sass-loader']
 
 module.exports = {
+  devtool: PROD ? 'cheap-module-source-map' : 'eval',
   entry,
   plugins,
   output: {
     path: path.join(__dirname, '../dist'),
-    publicPath: '/dist/',
-    filename: 'bundle.js'
+    publicPath: PROD ? '/' : '/dist/',
+    filename: PROD ? 'bundle.[hash:12].min.js' : 'bundle.js'
   },
   module: {
     rules: [
