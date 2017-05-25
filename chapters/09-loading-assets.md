@@ -83,3 +83,5 @@ To inline image assets that are below a specified value, we can provide a parame
 ```
 
 When we run `npm run build`, only the large image will be exported to the 'dist' folder, while the smaller image will be delivered inline via JS.
+
+[Sourcemaps](10-sourcemaps.md)

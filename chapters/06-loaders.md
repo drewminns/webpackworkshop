@@ -157,3 +157,5 @@ app.innerHTML = `<p>Hello ${data.location}!</p>`;
 ```
 
 Start up the dev server again with `npm run dev` and you will have ES5 code delivered to your browser in the bundle.js file.
+
+[Production Building](07-production-building.md)

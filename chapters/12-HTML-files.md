@@ -74,3 +74,5 @@ publicPath: PROD ? '/' : '/dist/',
 
 ## More options
 You can see more options for the outputted HTML template such as changing the title [here](https://github.com/jantimon/html-webpack-plugin#configuration).
+
+[Cachebusting](13-cachebusting.md)

@@ -120,3 +120,5 @@ With this in place, we can leave our terminal running.
 
 ## Exercise
 Add more external JS files and require them into your script.js. Import others into your data.js and create a chain of files to be bundled into one final file.
+
+[Using the bundle](03-understanding-the-bundle.md)

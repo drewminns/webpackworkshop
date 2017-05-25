@@ -118,3 +118,5 @@ const plugins = PROD
 Now when you run `npm run build`, you'll see that the bundle file has whitespace removed and the file size has dropped significantly.
 
 Options can be provided to the plugin by passing in object to the method. Read about available options [here](https://webpack.js.org/plugins/uglifyjs-webpack-plugin/#options).
+
+[Loading Styles](08-loading-styles.md)

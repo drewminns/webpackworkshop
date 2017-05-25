@@ -85,3 +85,5 @@ If we run our production build, we can inspect and see that all of the unused co
 
 ### CSS!
 If you're interested in removing unused CSS, check out the [purifycss-webpack plugin](https://github.com/webpack-contrib/purifycss-webpack).
+
+[HTML Files](12-HTML-files.md)

@@ -50,3 +50,5 @@ Because we're running our JS through Babel, we can have UglifyJS create a source
 ```
 new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
 ```
+
+[Tree Shaking](11-tree-shaking.md)

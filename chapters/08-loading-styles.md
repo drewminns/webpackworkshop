@@ -255,3 +255,6 @@ const plugins = PROD
 ```
 
 The file will be output the publicPath value we defined in our Webpack output object.
+
+
+[Loading Assets](09-loading-assets.md)

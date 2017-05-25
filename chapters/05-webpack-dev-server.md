@@ -149,3 +149,5 @@ The final step is to run our newly created server, but since we created a dev-se
 Now, with all of that running, you can run `npm run dev` in the terminal, load up localhost:8080 in your browser, make a change to your JS and see it changed immediately without the browser being refreshed.
 
 Boom.
+
+[Loaders](06-loaders.md)

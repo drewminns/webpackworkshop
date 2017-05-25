@@ -47,3 +47,5 @@ So how does webpack know which array item to start with? Roughly around line 65,
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
 ```
+
+[Webpack Config File](04-webpack-config-file.md)

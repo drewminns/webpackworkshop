@@ -196,3 +196,5 @@ module.exports = {
 ```
 
 Webpack will output a file for each entry specified and use the property name as the file name. `dog.bundle.js`, `pizza.bundle.js`, `dragon.bundle.js`.
+
+[Webpack Dev Server](05-webpack-dev-server.md)

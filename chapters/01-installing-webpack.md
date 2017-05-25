@@ -11,3 +11,5 @@ Once that script has been run, we can now install webpack to our project. As of 
 In the terminal, let's install webpack to our project by running `npm install webpack --save-dev`.
 
 Typically, webpack will only be used as a dev-dependency as we will use it during development and when ready to put our project live, we will use webpack to compile all our assets as needed. If you use webpack to handle bundling on a server, for example with server side rendering, you will need to install webpack and all other webpack related dependencies with the `--save` flag.
+
+[Using Webpack](02-using-webpack.md)
